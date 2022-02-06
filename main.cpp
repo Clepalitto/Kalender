@@ -90,6 +90,7 @@ int main()
         int February = 28;
         if(Year == leap_year){
             February = 29;
+            leap_year += 4;
         }
         month("January", 31);
         month("February", February);
