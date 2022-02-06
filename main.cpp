@@ -72,7 +72,7 @@ int main()
 {
     string v = "1.0.0";
     cout << "Kalender v " << v << endl;
-    cout << "Day of the week on which the 1rst of January falls (1 for Monday, 2 for Tuesday ...) : " ;
+    cout << "Day of the week on which the 1st of January falls (1 for Monday, 2 for Tuesday ...) : " ;
     input: cin >> FirstOfJanuaryDay;
     if(FirstOfJanuaryDay > 7 || FirstOfJanuaryDay < 1){
         cout << "This number is not appropriate. Please enter a number between 1 and 7." << endl;
@@ -86,7 +86,7 @@ int main()
     cout << "How many years do you want to generate (Try not to go over 4, or else some wrong results may appear) ? ";
     int years;
     cin >> years;
-    for(int o; o <= years; o++){
+    for(int o = 1; o <= years; o++){
         int February = 28;
         if(Year == leap_year){
             February = 29;
@@ -96,7 +96,7 @@ int main()
         month("February", February);
         month("March", 31);
         month("April", 30);
-        month("Mai", 31);
+        month("May", 31);
         month("June", 30);
         month("July", 31);
         month("August", 31);
