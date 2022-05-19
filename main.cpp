@@ -1,3 +1,4 @@
+
 #include <iostream>
 
 using namespace std;
@@ -8,62 +9,84 @@ string Day = "";
 
 void number_to_day(int number){
     if(number == 1){
-        Day = "Monday";
+        Day = "Mon";
     }
     if(number == 2){
-        Day = "Tuesday";
+        Day = "Tue";
     }
     if(number == 3){
-        Day = "Wednesday";
+        Day = "Wed";
     }
     if(number == 4){
-        Day = "Thursday";
+        Day = "Thu";
     }
     if(number == 5){
-        Day = "Friday";
+        Day = "Fri";
     }
     if(number == 6){
-        Day = "Saturday";
+        Day = "Sat";
     }
     if(number == 7){
-        Day = "Sunday";
+        Day = "Sun";
     }
 }
 
 void day_to_number(string day){
-    if(day == "Monday"){
+    if(day == "Mon"){
         FirstOfJanuaryDay = 1;
     }
-    if(day == "Tuesday"){
+    if(day == "Tue"){
         FirstOfJanuaryDay = 2;
     }
-    if(day == "Wednesday"){
+    if(day == "Wed"){
         FirstOfJanuaryDay = 3;
     }
-    if(day == "Thursay"){
+    if(day == "Thu"){
         FirstOfJanuaryDay = 4;
     }
-    if(day == "Friday"){
+    if(day == "Fri"){
         FirstOfJanuaryDay = 5;
     }
-    if(day == "Saturday"){
+    if(day == "Sat"){
         FirstOfJanuaryDay = 6;
     }
-    if(day == "Sunday"){
+    if(day == "Sun"){
         FirstOfJanuaryDay = 7;
     }
 }
 
 int month(string month_name, int number_of_days){
+    
+    int temp = FirstOfJanuaryDay;
+    string Daytemp = Day;
+    
+    cout<<"\n\n"<<month_name<<"\n";
+    for(int i = 1;i<=7;i++){
+        number_to_day(FirstOfJanuaryDay);
+        cout<<Day<<" ";
+        day_to_number(Day);
+        FirstOfJanuaryDay += 1;
+        if(FirstOfJanuaryDay>7){
+            FirstOfJanuaryDay = 1;
+        }
+    }  //for days of the week
+    cout<<"\n";
+    
+    FirstOfJanuaryDay = temp;
+    Day = Daytemp;
+    
     for(int i = 1; i <= number_of_days; i++){
         number_to_day(FirstOfJanuaryDay);
-        cout << Day << " " << i << " " << month_name << " " << Year << endl;
+        cout << i <<"  ";
+        if(i<10){cout<<" ";}//Alignment
         day_to_number(Day);
         FirstOfJanuaryDay += 1;
         if(FirstOfJanuaryDay > 7){
             FirstOfJanuaryDay = 1; // Go back to Monday after a Sunday
         }
-
+        if(i%7==0){
+            cout<<"\n";
+        }//Line Allignment
     }
     return 0;
 }
@@ -92,6 +115,7 @@ int main()
             February = 29;
             leap_year += 4;
         }
+        cout<<"\n\n"<<Year;
         month("January", 31);
         month("February", February);
         month("March", 31);
